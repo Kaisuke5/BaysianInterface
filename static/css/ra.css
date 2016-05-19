@@ -1,0 +1,70 @@
+
+.margin_midium{
+    padding-top:10px!important;
+    padding-bottom:0px!important;
+}
+
+
+
+
+.y-input-form{
+    margin-top: 5px;
+    width: 100%!important;
+    height: 300px;
+
+
+}
+
+
+.y-input-form.mdl-card{
+    overflow: scroll;
+    height: 300px!important;
+}
+
+.card-article-list.mdl-card {
+    width: 100%!important;
+    height: 400px!important;
+    margin-top: 10px;
+    overflow: scroll;
+}
+
+.btn-setting{
+    color: white!important;
+}
+
+.card-comment-list {
+    width: 100%!important;
+    height: 300px!important;
+    margin-top: 10px;
+}
+
+.step{
+    font-weight:bold!important;
+    margin-right: 5px!important;
+}
+
+.li_size{
+    padding-top:0px!important;
+    padding-bottom:10px!important;
+    margin: 0px!important;
+}
+
+
+
+.margin_top_large{
+    margin-top:20px!important;
+}
+
+.back {
+    background-color:rgb(233, 234, 237);
+}
+
+
+
+.grid_g{
+    background-color: darkgray !important;
+}
+
+.grid_b{
+    background-color: cornflowerblue !important;
+}
