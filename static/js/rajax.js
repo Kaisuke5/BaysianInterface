@@ -31,6 +31,7 @@ function init() {
 
         var result = JSON.parse(data.ResultSet);
         var img_path = 'static/image/' + result['index'] + '.png';
+        var form_img_path = 'static/image/' + result['new_index'] + '.png';
         $("#hello").text(result);
         //button 復活
         $("#y_button").prop("disabled", false);
@@ -40,6 +41,7 @@ function init() {
         //dom 追加
         add_li_dom(result["result_x"]);
         $("#new_x_span").text(result["new_x"]);
+        load_form_image(form_img_path);
         write_binary_file(img_path);
       },
       error: function(data){
@@ -111,6 +113,7 @@ function add_li_dom(msg){
 
   li.append(span1);
   li.append(span2);
+  li.append()
 
   $("#result_list").append(li);
 
@@ -144,17 +147,26 @@ write_binary_file = function(url) {
   for (i = 0; i < filestream.length; i++){
     bytes[i] = filestream.charCodeAt(i) & 0xff;
   }
-  var li = $('#li_'+num);
-  console.log(li)
   var img = $("<img>",{
     "src": 'data:image/png;base64,'+ base64.encode(String.fromCharCode.apply(String, bytes)),
     "width":"100px",
     "height":"100px"
   });
+  var li = $('#li_'+num);
   li.append(img)
 
 }
 
+load_form_image = function(url){
+  var filestream = load_url(url);
+  var bytes = [];
+  for (i = 0; i < filestream.length; i++){
+    bytes[i] = filestream.charCodeAt(i) & 0xff;
+  }
+  var src = 'data:image/png;base64,'+ base64.encode(String.fromCharCode.apply(String, bytes));
+  $('#post_img').attr('src',src);
+
+}
 
 
 

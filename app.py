@@ -94,12 +94,15 @@ def index():
     config(d,f="output.txt")
     init_x()
     load_vectors()
+    index = get_similar_vector(session['last_x'])
+    session['index'] = index
     s = get_x_message(session["last_x"])
     f = open(session["output_file"],"w")
     f.close()
 
 
     return render_template("index.html",
+                           index=index,
                            new_x=s+" (initial x)" , title=title)
 
 
@@ -118,12 +121,15 @@ def post():
 
     #make new x
     new_x = caluculate(session["last_x"],y)
-    index = get_similar_vector(new_x)
+    new_index = get_similar_vector(new_x)
+    index = session['index']
     session["last_x"] = new_x
+    session['index'] = new_index
     print session
 
     return_data = {"new_x": get_x_message(new_x),
                    "result_x":get_x_message(last_x),
+                   'new_index':new_index,
                    'index':index}
     return jsonify(ResultSet=json.dumps(return_data))
 
